@@ -15,7 +15,7 @@ export default function CBackground({
 
   return (
     <div className="p-4">
-      <video src="./bg-vid.mp4" ref={videoRef} id="bg-video" autoPlay muted loop />
+      <video src="./bg-vid.mp4" ref={videoRef} id="bg-video" autoPlay muted loop playsInline/>
       {children}
     </div>
   );

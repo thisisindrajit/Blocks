@@ -15,7 +15,15 @@ export default function CBackground({
 
   return (
     <div className="p-4">
-      <video src="./bg-vid.mp4" ref={videoRef} id="bg-video" autoPlay muted loop playsInline/>
+      <video
+        ref={videoRef}
+        src="https://l4bxrlmpiym4asoe.public.blob.vercel-storage.com/bg-vid.webm"
+        id="bg-video"
+        autoPlay
+        muted
+        loop
+        playsInline
+      />
       {children}
     </div>
   );

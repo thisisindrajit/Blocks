@@ -9,7 +9,7 @@ export default function CBackground({
 
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.playbackRate = 0.8;
+      videoRef.current.playbackRate = 0.5;
     }
   }, []);
 
@@ -17,7 +17,7 @@ export default function CBackground({
     <div className="p-4">
       <video
         ref={videoRef}
-        src="https://l4bxrlmpiym4asoe.public.blob.vercel-storage.com/bg-vid.webm"
+        src="https://l4bxrlmpiym4asoe.public.blob.vercel-storage.com/bg-dark.webm"
         id="bg-video"
         autoPlay
         muted

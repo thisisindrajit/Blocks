@@ -117,5 +117,5 @@
 }
 
 #bg-video {
-  @apply fixed top-0 right-0 object-cover z-[-1] opacity-25 pointer-events-none min-h-screen;
+  @apply fixed top-0 right-0 object-cover z-[-1] opacity-35 pointer-events-none min-h-screen;
 }

@@ -4,7 +4,8 @@ import { useEffect, useRef } from "react";
 
 export default function CBackground({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+  className,
+}: Readonly<{ children: React.ReactNode; className?: string }>) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
@@ -14,7 +15,7 @@ export default function CBackground({
   }, []);
 
   return (
-    <div className="p-4">
+    <div className={className}>
       <video
         ref={videoRef}
         src="https://l4bxrlmpiym4asoe.public.blob.vercel-storage.com/bg-dark.webm"

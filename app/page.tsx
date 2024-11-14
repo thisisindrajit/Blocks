@@ -1,12 +1,12 @@
 import TopBar from "@/components/TopBar";
 import { Button } from "@/components/ui/button";
-import { Fragment } from "react";
+import { FC, Fragment } from "react";
 
-export default function Home() {
+const LandingPage: FC = () => {
   return (
     <Fragment>
       <TopBar />
-      <div className="m-auto flex flex-col gap-4 lg:gap-6 items-center">
+      <div className="m-auto my-16 flex flex-col gap-4 lg:gap-6 items-center">
         {/* Motto */}
         <div className="text-5xl/tight lg:text-6xl/tight font-medium text-center">
           Turning{" "}
@@ -27,10 +27,12 @@ export default function Home() {
         </Button>
       </div>
       <div className="flex flex-col">
-        <div className="text-2xl underline underline-offset-4">
+        <div className="text-2xl underline underline-offset-[10px]">
           <span className="font-bold">Trending</span> Blocks
         </div>
       </div>
     </Fragment>
   );
 }
+
+export default LandingPage;

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import CBackground from "@/components/CBackground";
+import { FC } from "react";
 
 // TODO: Change these to constants
 export const metadata: Metadata = {
@@ -8,11 +9,11 @@ export const metadata: Metadata = {
   description: "Turning curiosity into clarity.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+const RootLayout: FC<Readonly<{
   children: React.ReactNode;
-}>) {
+}>> =({
+  children,
+}) => {
   return (
     <html lang="en">
       <head>
@@ -40,8 +41,10 @@ export default function RootLayout({
         <link rel="manifest" href="/favicons/site.webmanifest" />
       </head>
       <body className={`m-auto xl:max-w-[1440px] 2xl:max-w-[1920px]`}>
-        <CBackground className="p-4 lg:p-6 flex flex-col gap-28">{children}</CBackground>
+        <CBackground className="p-4 lg:p-6 flex flex-col gap-12">{children}</CBackground>
       </body>
     </html>
   );
 }
+
+export default RootLayout;

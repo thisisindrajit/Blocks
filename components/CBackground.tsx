@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { FC, useEffect, useRef } from "react";
 
-export default function CBackground({
+const CBackground: FC<{ children: React.ReactNode; className?: string }> = ({
   children,
   className,
-}: Readonly<{ children: React.ReactNode; className?: string }>) {
+}) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
@@ -28,4 +28,6 @@ export default function CBackground({
       {children}
     </div>
   );
-}
+};
+
+export default CBackground;

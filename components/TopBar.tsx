@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Button } from "./ui/button";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
 const TopBar: FC = () => {
   return (
@@ -9,7 +10,26 @@ const TopBar: FC = () => {
         Blocks
       </div>
       {/* Login button */}
-      <Button size="lg">Login</Button>
+      <div>
+        <SignedIn>
+          <UserButton
+            appearance={{
+              elements: {
+                userButtonAvatarBox: "size-8 rounded-none",
+              },
+            }}
+          />
+        </SignedIn>
+        <SignedOut>
+          <SignInButton
+            forceRedirectUrl="/user/dashboard"
+            signUpForceRedirectUrl="/user/dashboard"
+            mode="modal"
+          >
+            <Button size="lg">Login</Button>
+          </SignInButton>
+        </SignedOut>
+      </div>
     </div>
   );
 };

@@ -1,3 +1,4 @@
+import CMasonryHolder from "@/components/CMasonryHolder";
 import TopBar from "@/components/TopBar";
 import { Button } from "@/components/ui/button";
 import { FC, Fragment } from "react";
@@ -19,20 +20,18 @@ const LandingPage: FC = () => {
           </span>
         </div>
         {/* Get started */}
-        <Button
-          variant="outline"
-          className="text-lg lg:text-xl h-12"
-        >
+        <Button variant="outline" className="text-lg lg:text-xl h-12">
           Start exploring!
         </Button>
       </div>
-      <div className="flex flex-col">
-        <div className="text-2xl underline underline-offset-[10px]">
+      <div className="flex flex-col gap-4">
+        <div className="text-2xl">
           <span className="font-bold">Trending</span> Blocks
         </div>
+        <CMasonryHolder />
       </div>
     </Fragment>
   );
-}
+};
 
 export default LandingPage;

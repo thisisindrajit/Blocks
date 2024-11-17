@@ -2,18 +2,19 @@ import type { Metadata } from "next";
 import "./globals.css";
 import CBackground from "@/components/CBackground";
 import { FC } from "react";
+import ConvexClientProvider from "@/providers/CConvexClientProvider";
+import { APP_DESCRIPTION, APP_NAME } from "@/constants/common";
 
-// TODO: Change these to constants
 export const metadata: Metadata = {
-  title: "Blocks",
-  description: "Turning curiosity into clarity.",
+  title: APP_NAME,
+  description: APP_DESCRIPTION,
 };
 
-const RootLayout: FC<Readonly<{
-  children: React.ReactNode;
-}>> =({
-  children,
-}) => {
+const RootLayout: FC<
+  Readonly<{
+    children: React.ReactNode;
+  }>
+> = ({ children }) => {
   return (
     <html lang="en">
       <head>
@@ -41,10 +42,14 @@ const RootLayout: FC<Readonly<{
         <link rel="manifest" href="/favicons/site.webmanifest" />
       </head>
       <body className={`m-auto xl:max-w-[1440px] 2xl:max-w-[1920px]`}>
-        <CBackground className="p-4 lg:p-6 flex flex-col gap-12">{children}</CBackground>
+        <ConvexClientProvider>
+          <CBackground className="p-4 lg:p-6 flex flex-col gap-12">
+            {children}
+          </CBackground>
+        </ConvexClientProvider>
       </body>
     </html>
   );
-}
+};
 
 export default RootLayout;

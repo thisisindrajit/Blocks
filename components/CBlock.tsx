@@ -1,13 +1,14 @@
 "use client";
 
+import { randomLightColorGenerator } from "@/utilities/commonUtilities";
 import { FC, useLayoutEffect, useRef } from "react";
 
-const CBlock: FC<{ title: string; height: string; color: string }> = ({
+const CBlock: FC<{ title: string; height: string }> = ({
   title,
   height,
-  color,
 }) => {
   const blockRef = useRef<HTMLDivElement>(null);
+  const color = randomLightColorGenerator();
 
   useLayoutEffect(() => {
     const block = blockRef.current;

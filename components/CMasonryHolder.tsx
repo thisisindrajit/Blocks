@@ -1,6 +1,5 @@
 "use client";
 
-import { randomLightColorGenerator } from "@/utilities/commonUtilities";
 import dynamic from "next/dynamic";
 import Block from "./CBlock";
 
@@ -29,14 +28,11 @@ const CMasonryHolder = () => {
   return (
     <Masonry columns={{ 640: 1, 768: 2, 1280: 3 }} gap={12}>
       {titles.map((title, index) => {
-        const randomLightColor: string = randomLightColorGenerator();
-
         return (
           <Block
             key={index}
             title={title}
             height={heights[index]}
-            color={randomLightColor}
           />
         );
       })}

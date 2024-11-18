@@ -1,2 +1,2 @@
 export const randomLightColorGenerator = (): string =>
-  `${Math.random() * 360}, 90%, 75%`;
+  `${Math.random() * 360}, 80%, 75%`;

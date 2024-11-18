@@ -1,7 +1,7 @@
 "use client";
 
 import { randomLightColorGenerator } from "@/utilities/commonUtilities";
-import { FC, useLayoutEffect, useRef } from "react";
+import { FC, memo, useLayoutEffect, useRef } from "react";
 
 const CBlock: FC<{ title: string; height: string }> = ({
   title,
@@ -45,4 +45,4 @@ const CBlock: FC<{ title: string; height: string }> = ({
   );
 };
 
-export default CBlock;
+export default memo(CBlock);

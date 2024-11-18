@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import dynamic from "next/dynamic";
 import Block from "./CBlock";
 
@@ -40,4 +41,4 @@ const CMasonryHolder = () => {
   );
 };
 
-export default CMasonryHolder;
+export default memo(CMasonryHolder);

@@ -1,9 +1,17 @@
 import CMasonryHolder from "@/components/CMasonryHolder";
 import TopBar from "@/components/TopBar";
 import { Button } from "@/components/ui/button";
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 import { FC, Fragment } from "react";
 
-const LandingPage: FC = () => {
+const LandingPage: FC = async () => {
+  const { userId }: { userId: string | null } = await auth();
+
+  if (userId) {
+    redirect(`${process.env.NEXT_PUBLIC_BASE_URL}/user/dashboard`);
+  }
+  
   return (
     <Fragment>
       <TopBar />

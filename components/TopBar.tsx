@@ -11,7 +11,7 @@ const TopBar: FC = async () => {
     <div className="flex items-center justify-between sticky top-4 text-foreground z-50">
       {/* Logo */}
       <Link href={user ? `/user/dashboard` : `/`}>
-        <div className="bg-white/15 backdrop-blur-xl h-10 px-4 font-bold flex items-center gap-2 uppercase">
+        <div className="bg-foreground/20 backdrop-blur-xl h-10 px-4 font-bold flex items-center gap-2 uppercase">
           Blocks
         </div>
       </Link>
@@ -22,7 +22,7 @@ const TopBar: FC = async () => {
             appearance={{
               elements: {
                 rootBox: "flex",
-                userButtonAvatarBox: "rounded-none size-10",
+                userButtonAvatarBox: "size-10 rounded-none"
               },
             }}
           />

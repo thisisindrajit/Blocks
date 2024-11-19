@@ -1,6 +1,9 @@
 "use client";
 
-import { randomLightColorGenerator } from "@/utilities/commonUtilities";
+import {
+  randomLightColorGenerator,
+  statsCountShortener,
+} from "@/utilities/commonUtilities";
 import { FC, memo, useLayoutEffect, useRef } from "react";
 import { Separator } from "./ui/separator";
 import { Bookmark, Heart, Share2 } from "lucide-react";
@@ -40,7 +43,7 @@ const CBlock: FC<{
   return (
     <div
       ref={blockRef}
-      className={`min-w-full flex flex-col gap-3 py-4 px-5 border-2 border-transparent transition-all cursor-pointer`}
+      className={`min-w-full flex flex-col gap-3 p-4 border-2 border-transparent transition-all cursor-pointer`}
       style={{
         backgroundColor: `hsla(${color}, 0.15)`,
         borderColor: `hsla(${color}, 0.15)`,
@@ -49,7 +52,7 @@ const CBlock: FC<{
       {/* Title, requestor details and type */}
       <div className="flex flex-col gap-1.5 font-medium">
         <span
-          className="text-3xl/10 font-bold"
+          className="text-2xl/10 lg:text-3xl/10 font-bold"
           style={{ color: `hsla(${color}, 1)` }}
         >
           {title}
@@ -67,7 +70,9 @@ const CBlock: FC<{
         }}
       />
       {/* TLDR */}
-      <div className="text-lg/loose text-justify">{tldr}</div>
+      <div className="text-base/loose lg:text-lg/loose text-justify">
+        {tldr}
+      </div>
       {/* Did you know */}
       <div
         className="py-3 px-4 flex flex-col gap-1.5 font-medium"
@@ -101,7 +106,7 @@ const CBlock: FC<{
           ) : (
             <Heart className="h-4 w-4" />
           )}
-          {likesCount}
+          {statsCountShortener(likesCount)}
         </div>
         <div
           className="flex items-center justify-center gap-1.5 text-sm py-3 px-4 cursor-pointer border-2"

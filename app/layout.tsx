@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import CBackground from "@/components/CBackground";
 import { FC } from "react";
 import ConvexClientProvider from "@/providers/CConvexClientProvider";
 import { APP_DESCRIPTION, APP_NAME } from "@/constants/common";
@@ -43,9 +42,7 @@ const RootLayout: FC<
       </head>
       <body className={`m-auto xl:max-w-[1440px] 2xl:max-w-[1920px]`}>
         <ConvexClientProvider>
-          <CBackground className="p-4 lg:p-6 flex flex-col gap-12">
-            {children}
-          </CBackground>
+          <div className="p-4 lg:p-6 flex flex-col gap-12">{children}</div>
         </ConvexClientProvider>
       </body>
     </html>

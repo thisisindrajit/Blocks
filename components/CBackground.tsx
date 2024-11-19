@@ -10,7 +10,7 @@ const CBackground: FC<{ children: React.ReactNode; className?: string }> = ({
 
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.playbackRate = 0.5;
+      videoRef.current.playbackRate = 0.6;
     }
   }, []);
 
@@ -18,7 +18,8 @@ const CBackground: FC<{ children: React.ReactNode; className?: string }> = ({
     <div className={className}>
       <video
         ref={videoRef}
-        src="https://l4bxrlmpiym4asoe.public.blob.vercel-storage.com/bg-dark.webm"
+        // TODO: Update the video source
+        src=""
         id="bg-video"
         autoPlay
         muted

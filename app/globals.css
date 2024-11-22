@@ -116,6 +116,24 @@
   }
 }
 
+@layer base {
+  @property --color-a {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: transparent;
+  }
+  @property --color-b {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: transparent;
+  }
+  @property --color-c {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: transparent;
+  }
+}
+
 #bg-video {
   @apply fixed top-0 right-0 object-cover z-[-1] opacity-30 pointer-events-none min-h-screen;
 }

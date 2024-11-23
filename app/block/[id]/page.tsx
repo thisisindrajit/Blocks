@@ -1,5 +1,7 @@
+import Loader from "@/components/Loader";
+
 const BlockPage = () => {
-  return <div>This is the block page!</div>;
+  return <Loader text="Loading block" />;
 };
 
 export default BlockPage;

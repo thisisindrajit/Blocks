@@ -1,5 +1,7 @@
+import Loader from "@/components/Loader";
+
 const BlockLoading = () => {
-  return <div>Loading block...</div>;
+  return <Loader text="Loading block" />;
 };
 
 export default BlockLoading;

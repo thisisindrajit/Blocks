@@ -1,5 +1,7 @@
+import Loader from "@/components/Loader";
+
 const DashboardLoading = () => {
-  return <div>Loading user dashboard...</div>;
+  return <Loader text="Loading user dashboard" />;
 };
 
 export default DashboardLoading;

@@ -159,7 +159,7 @@ const CMasonryHolder = () => {
 
   return (
     <Suspense fallback={<div>Loading layout...</div>}>
-      <Masonry columns={{ 640: 1, 768: 2, 1280: 3 }} gap={18}>
+      <Masonry columns={{ 640: 1, 1024: 2, 1280: 3 }} gap={18}>
         {dummyData.map((data, index) => {
           return (
             <Link href={`/block/${index}`} key={index}>

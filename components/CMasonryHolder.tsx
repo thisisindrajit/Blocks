@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import Block from "./CBlock";
 import { Suspense } from "react";
+import Link from "next/link";
 
 const Masonry = dynamic(() => import("react-layout-masonry"), {
   ssr: false, // This ensures the component is not SSR'd
@@ -161,15 +162,17 @@ const CMasonryHolder = () => {
       <Masonry columns={{ 640: 1, 768: 2, 1280: 3 }} gap={18}>
         {dummyData.map((data, index) => {
           return (
-            <Block
-              key={index}
-              title={data.title}
-              tldr={data.tldr}
-              didYouKnow={data.didYouKnow}
-              likesCount={data.likeCount}
-              isLiked={data.isLiked}
-              isSaved={data.isSaved}
-            />
+            <Link href={`/block/${index}`} key={index}>
+              <Block
+                key={index}
+                title={data.title}
+                tldr={data.tldr}
+                didYouKnow={data.didYouKnow}
+                likesCount={data.likeCount}
+                isLiked={data.isLiked}
+                isSaved={data.isSaved}
+              />
+            </Link>
           );
         })}
       </Masonry>

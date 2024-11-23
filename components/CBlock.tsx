@@ -129,7 +129,7 @@ const CBlock: FC<{
           {isSaved ? "Saved" : "Save"}
         </div>
         <div
-          className="flex items-center justify-center gap-1.5 text-sm p-3 h-full aspect-square cursor-pointer"
+          className="flex items-center justify-center gap-1.5 text-sm p-4 aspect-square cursor-pointer"
           style={{
             backgroundColor: `hsla(${color}, 0.15)`,
             color: `hsla(${color}, 1)`,

@@ -2,7 +2,7 @@ import CMasonryHolder from "@/components/CMasonryHolder";
 import TopBar from "@/components/TopBar";
 import { Fragment } from "react";
 
-const CDashboardPage = () => {
+const DashboardPage = () => {
   return (
     <Fragment>
       <TopBar />
@@ -13,4 +13,4 @@ const CDashboardPage = () => {
   );
 };
 
-export default CDashboardPage;
+export default DashboardPage;

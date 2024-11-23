@@ -14,8 +14,9 @@ export const metadata: Metadata = {
 const RootLayout: FC<
   Readonly<{
     children: React.ReactNode;
+    modal: React.ReactNode;
   }>
-> = ({ children }) => {
+> = ({ children, modal }) => {
   return (
     <html lang="en">
       <head>
@@ -42,10 +43,12 @@ const RootLayout: FC<
         />
         <link rel="manifest" href="/favicons/site.webmanifest" />
       </head>
-      <body className={`m-auto xl:max-w-[1440px] 2xl:max-w-[1920px]`}>
+      <body>
         <ConvexClientProvider>
-          <CBackground className="p-4 lg:p-6 flex flex-col gap-12">
+          <CBackground className="p-4 lg:p-6 flex flex-col gap-12 m-auto xl:max-w-[1440px] 2xl:max-w-[1920px]">
             {children}
+            {modal}
+            <div id="modal-root" />
           </CBackground>
         </ConvexClientProvider>
       </body>

@@ -13,7 +13,7 @@ const CBackground: FC<{ className?: string; children: ReactNode }> = ({
   const themeMap = useMemo(
     () => ({
       [Theme.Light]: ["#394e7a", "	#8e9ac7", "#4ee"], // TODO: Change the colors later
-      [Theme.Dark]: ["#000", "#1e1e1e", "#111111"],
+      [Theme.Dark]: ["#000000", "#232323", "#040404"],
     }),
     [Theme.Light, Theme.Dark]
   );

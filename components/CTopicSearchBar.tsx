@@ -59,14 +59,14 @@ const CTopicSearchBar: FC = () => {
     setWidth(formattedSearchQuery.length);
 
     toast.success(
-      <div className="text-sm/loose text-justify">
+      <div className="text-sm/loose text-justify font-medium">
         Your request for search query{" "}
-        <span className="font-semibold">{searchQuery}</span> has been queued!
-        You will receive a notification when the AI generated block is
+        <span className="font-bold underline">{searchQuery}</span> has been
+        queued! You will receive a notification when the AI generated block is
         available. Meanwhile you can check out trending blocks.
       </div>,
       {
-        duration: 10000,
+        duration: Infinity,
       }
     );
 
@@ -98,15 +98,25 @@ const CTopicSearchBar: FC = () => {
   };
 
   return (
-    <div className="flex flex-col sm:flex-row items-center sm:items-baseline gap-2 text-3xl md:text-4xl m-auto mt-8 mb-20">
+    <div className="flex flex-col sm:flex-row items-center sm:items-baseline gap-4 sm:gap-2 text-3xl lg:text-4xl m-auto mt-8 mb-14 lg:mb-20 font-medium">
       <span className={`${generatingBlock && "animate-pulse"} min-w-fit`}>
-        {generatingBlock ? "Generating block now for " : "I am curious about "}
+        {generatingBlock ? (
+          "Generating block for "
+        ) : (
+          <div>
+            I am{" "}
+            <span className="bg-gradient-to-r text-foreground from-teal-500 to-teal-600">
+              curious
+            </span>{" "}
+            about
+          </div>
+        )}
       </span>
-      <form onSubmit={submitHandler} className="flex items-baseline gap-2">
+      <form onSubmit={submitHandler} className="flex items-center gap-2">
         <Input
           id="search-input"
           placeholder="type in any topic"
-          className={`text-3xl md:text-4xl text-center sm:text-left px-0 py-6 md:py-8 rounded-none outline-none border-x-0 border-t-0 border-b-2 focus-visible:ring-0 focus-visible:ring-offset-0 text-teal-500 focus-visible:ring-transparent focus-visible:border-teal-500 focus-visible:placeholder:opacity-0 sm:focus-visible:placeholder:opacity-100 duration-200 ease-in-out max-w-[72vw] sm:max-w-[42vw] md:max-w-[48vw] ${generatingBlock ? "border-teal-500" : "border-foreground"}`}
+          className={`text-3xl lg:text-4xl text-center sm:text-left px-2 py-6 md:py-7 rounded-none outline-none border-x-0 border-t-0 border-b-2 bg-foreground/10 focus-visible:ring-0 focus-visible:ring-offset-0 text-teal-300 focus-visible:ring-transparent focus-visible:border-teal-500 focus-visible:placeholder:opacity-0 sm:focus-visible:placeholder:opacity-100 duration-200 ease-in-out max-w-[72vw] sm:max-w-[42vw] md:max-w-[48vw] ${generatingBlock ? "border-teal-300" : "border-muted-foreground"}`}
           style={{
             width: width + "ch",
           }}
@@ -117,14 +127,14 @@ const CTopicSearchBar: FC = () => {
           readOnly={generatingBlock}
         />
         {generatingBlock ? (
-          <div className="h-10 w-10 rounded-full border-2 border-foreground flex items-center justify-center">
-            <RotateCw className="animate-spin h-5 w-5" />
+          <div className=" h-12 w-12 md:h-14 md:w-14 [&_svg]:size-5 md:[&_svg]:size-6 border-2 border-foreground flex items-center justify-center rounded-full">
+            <RotateCw className="animate-spin" />
           </div>
         ) : (
           <Button
             size="icon"
             type="submit"
-            className="text-base md:h-10 md:w-10 [&_svg]:size-[1.125rem] md:[&_svg]:size-5"
+            className="text-base h-12 w-12 md:h-14 md:w-14 md:[&_svg]:size-6"
           >
             <ArrowRight />
           </Button>

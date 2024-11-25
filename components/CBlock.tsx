@@ -52,7 +52,7 @@ const CBlock: FC<{
       {/* Title, requestor details and type */}
       <div className="flex flex-col gap-1.5 font-medium">
         <span
-          className="text-2xl/10 lg:text-3xl/10 font-bold"
+          className="text-2xl/10 md:text-3xl/10 font-bold"
           style={{ color: `hsla(${color}, 1)` }}
         >
           {title}
@@ -70,7 +70,7 @@ const CBlock: FC<{
         }}
       />
       {/* TLDR */}
-      <div className="text-base/loose lg:text-lg/loose text-justify">
+      <div className="text-base/loose md:text-lg/loose text-justify">
         {tldr}
       </div>
       {/* Did you know */}

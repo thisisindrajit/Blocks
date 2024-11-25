@@ -22,7 +22,9 @@ const TopBar: FC = async () => {
             appearance={{
               elements: {
                 rootBox: "flex",
-                userButtonAvatarBox: "size-10 rounded-none"
+                userButtonPopoverCard: "rounded-none",
+                userButtonPopoverMain: "rounded-none",
+                userButtonAvatarBox: "size-10 rounded-none",
               },
             }}
           />

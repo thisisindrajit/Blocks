@@ -26,3 +26,23 @@ export const statsCountShortener = (value: number): string => {
     return "1M+";
   }
 };
+
+// Utility function to retry a function for a given number of times
+export async function retryFunction(fn: any, retries = 3) {
+  let attempt = 0;
+  while (attempt < retries) {
+    try {
+      // Attempt to execute the function
+      return await fn();
+    } catch (error) {
+      attempt++;
+
+      if (attempt >= retries) {
+        console.error(error);
+        throw new Error(
+          `Failed to execute function after ${retries} attempt(s)!`
+        );
+      }
+    }
+  }
+}

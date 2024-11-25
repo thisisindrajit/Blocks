@@ -14,11 +14,14 @@ const CModal: FC<{ children: ReactNode }> = ({ children }) => {
       document.body.style.overflow = "hidden";
       dialogRef.current?.showModal();
     }
+
+    // On unmounting the model, set overflow of body to auto
+    return () => {
+      document.body.style.overflow = "auto";
+    };
   }, []);
 
-  function onDismiss() {
-    // Make scrollbar visible
-    document.body.style.overflow = "auto";
+  const onDismiss = () => {
     router.back();
   }
 

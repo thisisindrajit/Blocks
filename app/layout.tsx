@@ -3,6 +3,7 @@ import { FC } from "react";
 import ConvexClientProvider from "@/providers/CConvexClientProvider";
 import { APP_DESCRIPTION, APP_NAME } from "@/constants/common";
 import CBackground from "@/components/CBackground";
+import { Toaster } from "sonner";
 
 import "./globals.css";
 
@@ -49,6 +50,17 @@ const RootLayout: FC<
             {children}
             {modal}
             <div id="modal-root" />
+            <Toaster
+              theme="light"
+              richColors={true}
+              expand={true}
+              closeButton={true}
+              toastOptions={{
+                style: {
+                  fontFamily: `"Clash Grotesk", sans-serif`,
+                },
+              }}
+            />
           </CBackground>
         </ConvexClientProvider>
       </body>

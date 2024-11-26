@@ -2,13 +2,14 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ArrowRight, RotateCw } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { FC, ChangeEvent, FormEvent, useState } from "react";
 // import { useAuth } from "@clerk/nextjs";
 import { toast } from "sonner";
 // import { useAction, useQuery } from "convex/react";
 // import { api } from "@/convex/_generated/api";
 import { retryFunction } from "@/utilities/commonUtilities";
+import Loader from "./Loader";
 // import { fetchMutation } from "convex/nextjs";
 
 const CTopicSearchBar: FC = () => {
@@ -127,8 +128,8 @@ const CTopicSearchBar: FC = () => {
           readOnly={generatingBlock}
         />
         {generatingBlock ? (
-          <div className=" h-12 w-12 md:h-14 md:w-14 [&_svg]:size-5 md:[&_svg]:size-6 border-2 border-foreground flex items-center justify-center rounded-full">
-            <RotateCw className="animate-spin" />
+          <div className=" h-12 w-12 md:h-14 md:w-14 [&_svg]:size-5 md:[&_svg]:size-6 border-2 border-foreground flex items-center justify-center">
+            <Loader noText />
           </div>
         ) : (
           <Button

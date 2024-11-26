@@ -1,78 +1,69 @@
 "use client";
 
-import React, { FC } from "react";
-// import {
-//   motion,
-//   AnimatePresence,
-//   useScroll,
-//   useMotionValueEvent,
-// } from "framer-motion";
+import React, { FC, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import useScroll from "@/hooks/useScroll";
+import { usePathname } from "next/navigation";
 
 const CBottomBar: FC<{
-  activeIndex: number;
   className?: string;
-}> = ({ activeIndex, className }) => {
-  // const { scrollYProgress } = useScroll();
-  // const [visible, setVisible] = useState(true);
+}> = ({ className }) => {
+  const { scrollDirection } = useScroll();
+  const pathName = usePathname();
   const navItems = [
     {
       name: "New and trending",
       link: "dashboard",
+      pathName: "/user/dashboard",
     },
     {
       name: "Saved blocks",
       link: "saved",
+      pathName: "/user/saved",
     },
   ];
 
-  //   useMotionValueEvent(scrollYProgress, "change", (current) => {
-  //     // Check if current is not undefined and is a number
-  //     if (typeof current === "number") {
-  //       const direction = current! - scrollYProgress.getPrevious()!;
+  useEffect(() => {
+    const handleScroll = () => {
+      if (scrollDirection === "down") {
+        document
+          .querySelector(".bottom-bar")
+          ?.classList.remove("opacity-0", "-translate-y-10");
+        document
+          .querySelector(".bottom-bar")
+          ?.classList.add("opacity-1", "translate-y-0");
+      } else {
+        document
+          .querySelector(".bottom-bar")
+          ?.classList.remove("opacity-1", "-translate-y-10");
+        document
+          .querySelector(".bottom-bar")
+          ?.classList.add("opacity-0", "-translate-y-10");
+      }
+    };
 
-  //       if (current == 1 && scrollYProgress.getPrevious() == 0) {
-  //         setVisible(true);
-  //       } else {
-  //         if (direction < 0) {
-  //           setVisible(true);
-  //         } else {
-  //           setVisible(false);
-  //         }
-  //       }
-  //     }
-  //   });
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [scrollDirection]);
 
   return (
-    // <AnimatePresence mode="wait">
-    //   <motion.div
-    //     initial={{
-    //       opacity: 1,
-    //       y: -50,
-    //     }}
-    //     animate={{
-    //       y: visible ? 0 : -50,
-    //       opacity: visible ? 1 : 0,
-    //     }}
-    //     transition={{
-    //       duration: 0.25,
-    //     }}
-    //     className={cn(
-    //       "flex items-center justify-center gap-1 max-w-fit fixed bottom-6 inset-x-0 mx-auto z-[50] bg-background/75 backdrop-blur-xl border border-foreground/50 text-foreground drop-shadow-xl font-medium p-1",
-    //       className
-    //     )}
-    //   >
     <div
       className={cn(
-        "flex items-center justify-center gap-1 max-w-fit fixed bottom-6 inset-x-0 mx-auto z-[50] bg-background/75 backdrop-blur-xl border border-foreground/50 text-foreground drop-shadow-xl font-medium p-1",
+        "bottom-bar flex items-center justify-center gap-1 max-w-fit inset-x-0 mx-auto z-[50] bg-background/75 backdrop-blur-xl border border-foreground/50 text-foreground drop-shadow-xl font-medium p-1 transition-all fixed bottom-6 opacity-1 translate-y-0",
         className
       )}
     >
       {navItems.map(
-        (navItem: { link: string; name: string }, index: number) => {
+        (
+          navItem: { link: string; name: string; pathName: string },
+          index: number
+        ) => {
           const linkClassName =
-            index === activeIndex
+            pathName === navItem.pathName
               ? "bg-teal-300/10 text-teal-300"
               : "hover:bg-foreground/10";
 
@@ -87,8 +78,6 @@ const CBottomBar: FC<{
           );
         }
       )}
-      {/* </motion.div>
-    </AnimatePresence> */}
     </div>
   );
 };

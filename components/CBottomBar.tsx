@@ -1,15 +1,15 @@
 "use client";
 
-import React, { FC, useEffect } from "react";
+import React, { FC } from "react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import useScroll from "@/hooks/useScroll";
+// import useScroll from "@/hooks/useScroll";
 import { usePathname } from "next/navigation";
 
 const CBottomBar: FC<{
   className?: string;
 }> = ({ className }) => {
-  const { scrollDirection } = useScroll();
+  //   const { scrollDirection } = useScroll();
   const pathName = usePathname();
   const navItems = [
     {
@@ -24,31 +24,31 @@ const CBottomBar: FC<{
     },
   ];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (scrollDirection === "down") {
-        document
-          .querySelector(".bottom-bar")
-          ?.classList.remove("opacity-0", "-translate-y-10");
-        document
-          .querySelector(".bottom-bar")
-          ?.classList.add("opacity-1", "translate-y-0");
-      } else {
-        document
-          .querySelector(".bottom-bar")
-          ?.classList.remove("opacity-1", "-translate-y-10");
-        document
-          .querySelector(".bottom-bar")
-          ?.classList.add("opacity-0", "-translate-y-10");
-      }
-    };
+  //   useEffect(() => {
+  //     const handleScroll = () => {
+  //       if (scrollDirection === "down") {
+  //         document
+  //           .querySelector(".bottom-bar")
+  //           ?.classList.remove("opacity-0", "-translate-y-10");
+  //         document
+  //           .querySelector(".bottom-bar")
+  //           ?.classList.add("opacity-1", "translate-y-0");
+  //       } else {
+  //         document
+  //           .querySelector(".bottom-bar")
+  //           ?.classList.remove("opacity-1", "-translate-y-10");
+  //         document
+  //           .querySelector(".bottom-bar")
+  //           ?.classList.add("opacity-0", "-translate-y-10");
+  //       }
+  //     };
 
-    window.addEventListener("scroll", handleScroll);
+  //     window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [scrollDirection]);
+  //     return () => {
+  //       window.removeEventListener("scroll", handleScroll);
+  //     };
+  //   }, [scrollDirection]);
 
   return (
     <div

@@ -19,11 +19,11 @@ const CBottomBar: FC<{
   const navItems = [
     {
       name: "New and trending",
-      link: "/user/dashboard",
+      link: "dashboard",
     },
     {
       name: "Saved blocks",
-      link: "/user/saved",
+      link: "saved",
     },
   ];
 

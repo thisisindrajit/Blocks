@@ -53,7 +53,7 @@ const CBottomBar: FC<{
   return (
     <div
       className={cn(
-        "bottom-bar flex items-center justify-center gap-1 max-w-fit inset-x-0 mx-auto z-[50] bg-background/75 backdrop-blur-xl border border-foreground/50 text-foreground drop-shadow-xl font-medium p-1 transition-all fixed bottom-6 opacity-1 translate-y-0",
+        "bottom-bar flex items-center justify-center gap-1 max-w-fit inset-x-0 mx-auto z-[50] bg-background/75 backdrop-blur-xl border border-foreground/50 text-foreground drop-shadow-xl font-medium p-1 transition-all fixed bottom-6 opacity-1",
         className
       )}
     >

@@ -1,7 +1,14 @@
 import Loader from "@/components/Loader";
+import TopBar from "@/components/TopBar";
+import { Fragment } from "react";
 
 const BlockPage = () => {
-  return <Loader text="Loading block" />;
+  return (
+    <Fragment>
+      <TopBar />
+      <Loader text="Loading block" />
+    </Fragment>
+  );
 };
 
 export default BlockPage;

@@ -1,11 +1,12 @@
 import CMasonryHolder from "@/components/CMasonryHolder";
-import { Fragment } from "react";
+import TitleHolder from "@/components/TitleHolder";
 
 const DashboardPage = () => {
   return (
-    <Fragment>
+    <div className="flex flex-col gap-4">
+      <TitleHolder boldText="New and trending" lightText="Blocks" />
       <CMasonryHolder />
-    </Fragment>
+    </div>
   );
 };
 

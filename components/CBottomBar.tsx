@@ -5,22 +5,14 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 // import useScroll from "@/hooks/useScroll";
 import { usePathname } from "next/navigation";
+import { BOTTOM_NAV_ITEMS } from "@/constants/common";
 
 const CBottomBar: FC<{
   className?: string;
 }> = ({ className }) => {
   //   const { scrollDirection } = useScroll();
+  const bottomNavItems = BOTTOM_NAV_ITEMS;
   const pathName = usePathname();
-  const navItems = [
-    {
-      name: "New and trending",
-      link: "/user/dashboard",
-    },
-    {
-      name: "Saved blocks",
-      link: "/user/saved",
-    },
-  ];
 
   //   useEffect(() => {
   //     const handleScroll = () => {
@@ -55,8 +47,11 @@ const CBottomBar: FC<{
         className
       )}
     >
-      {navItems.map(
-        (navItem: { link: string; name: string }, index: number) => {
+      {bottomNavItems.map(
+        (
+          navItem: { index: number; link: string; name: string },
+          index: number
+        ) => {
           const linkClassName =
             pathName === navItem.link
               ? "bg-teal-300/10 text-teal-300"

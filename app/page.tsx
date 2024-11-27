@@ -1,4 +1,5 @@
 import CMasonryHolder from "@/components/CMasonryHolder";
+import TitleHolder from "@/components/TitleHolder";
 import TopBar from "@/components/TopBar";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
@@ -26,9 +27,7 @@ const LandingPage: FC = async () => {
         </span>
       </div>
       <div className="flex flex-col gap-4">
-        <div className="text-2xl">
-          <span className="font-bold">Trending</span> Blocks
-        </div>
+        <TitleHolder boldText="Trending" lightText="Blocks" />
         <CMasonryHolder />
       </div>
     </Fragment>

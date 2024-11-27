@@ -60,9 +60,9 @@ const CBlock: FC<{
         <span className="text-sm text-foreground/75">
           Requested 16/11/2024 by Indrajit
         </span>
-        <div className="bg-foreground/20 backdrop-blur-xl w-fit py-1 px-3 uppercase my-2 font-bold">
+        {/* <div className="bg-foreground/20 backdrop-blur-xl w-fit py-1 px-3 uppercase my-2 font-bold">
           ELI5
-        </div>
+        </div> */}
       </div>
       <Separator
         style={{

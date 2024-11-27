@@ -44,10 +44,10 @@ const RootLayout: FC<
         />
         <link rel="manifest" href="/favicons/site.webmanifest" />
       </head>
-      <body className="m-auto xl:max-w-[1440px] 2xl:max-w-[1920px]">
+      <body>
         <ConvexClientProvider>
           <CBackground>
-            <div className="p-4 lg:p-6 flex flex-col gap-12">{children}</div>
+            <div className="p-4 lg:p-6 flex flex-col gap-12 m-auto xl:max-w-[1440px] 2xl:max-w-[1920px]">{children}</div>
             {modal}
             <div id="modal-root" />
             <Toaster

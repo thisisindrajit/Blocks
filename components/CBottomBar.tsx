@@ -14,13 +14,11 @@ const CBottomBar: FC<{
   const navItems = [
     {
       name: "New and trending",
-      link: "dashboard",
-      pathName: "/user/dashboard",
+      link: "/user/dashboard",
     },
     {
       name: "Saved blocks",
-      link: "saved",
-      pathName: "/user/saved",
+      link: "/user/saved",
     },
   ];
 
@@ -58,12 +56,9 @@ const CBottomBar: FC<{
       )}
     >
       {navItems.map(
-        (
-          navItem: { link: string; name: string; pathName: string },
-          index: number
-        ) => {
+        (navItem: { link: string; name: string }, index: number) => {
           const linkClassName =
-            pathName === navItem.pathName
+            pathName === navItem.link
               ? "bg-teal-300/10 text-teal-300"
               : "hover:bg-foreground/10";
 
@@ -73,7 +68,7 @@ const CBottomBar: FC<{
               href={navItem.link}
               className={cn("transition-all p-3", linkClassName)}
             >
-              <span className="block">{navItem.name}</span>
+              {navItem.name}
             </Link>
           );
         }

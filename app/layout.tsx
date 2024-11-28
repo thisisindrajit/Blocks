@@ -46,8 +46,8 @@ const RootLayout: FC<
       </head>
       <body>
         <ConvexClientProvider>
-          <CBackground>
-            <div className="p-4 lg:p-6 flex flex-col gap-12 m-auto xl:max-w-[1440px] 2xl:max-w-[1920px]">{children}</div>
+          <CBackground className="p-4 lg:p-6 flex flex-col gap-12 m-auto xl:max-w-[1440px] 2xl:max-w-[1920px]">
+            {children}
             {modal}
             <div id="modal-root" />
             <Toaster

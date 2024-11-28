@@ -99,7 +99,7 @@ const CTopicSearchBar: FC = () => {
   };
 
   return (
-    <div className="flex flex-col sm:flex-row items-center sm:items-baseline gap-4 sm:gap-2 text-3xl lg:text-4xl m-auto mt-8 mb-14 lg:mb-20 font-medium">
+    <div className="flex flex-col sm:flex-row items-center sm:items-baseline gap-4 sm:gap-2 text-3xl lg:text-4xl m-auto mt-10 mb-12 lg:mb-20 font-medium">
       <span className={`${generatingBlock && "animate-pulse"} min-w-fit`}>
         {generatingBlock ? (
           "Generating block for "
@@ -117,7 +117,7 @@ const CTopicSearchBar: FC = () => {
         <Input
           id="search-input"
           placeholder="type in any topic"
-          className={`text-3xl lg:text-4xl text-center sm:text-left px-2 py-6 md:py-7 rounded-none outline-none border-x-0 border-t-0 border-b-2 bg-foreground/10 focus-visible:ring-0 focus-visible:ring-offset-0 text-teal-300 focus-visible:ring-transparent focus-visible:border-teal-500 focus-visible:placeholder:opacity-0 sm:focus-visible:placeholder:opacity-100 duration-200 ease-in-out max-w-[72vw] sm:max-w-[42vw] md:max-w-[48vw] ${generatingBlock ? "border-teal-300" : "border-muted-foreground"}`}
+          className={`text-3xl lg:text-4xl text-center sm:text-left px-2 py-6 lg:py-7 rounded-none outline-none border-x-0 border-t-0 border-b-2 bg-foreground/10 focus-visible:ring-0 focus-visible:ring-offset-0 text-teal-300 focus-visible:ring-transparent focus-visible:border-teal-500 focus-visible:placeholder:opacity-0 sm:focus-visible:placeholder:opacity-100 duration-200 ease-in-out max-w-[72vw] sm:max-w-[42vw] md:max-w-[48vw] ${generatingBlock ? "border-teal-300" : "border-muted-foreground"}`}
           style={{
             width: width + "ch",
           }}
@@ -128,14 +128,14 @@ const CTopicSearchBar: FC = () => {
           readOnly={generatingBlock}
         />
         {generatingBlock ? (
-          <div className=" h-12 w-12 md:h-14 md:w-14 [&_svg]:size-5 md:[&_svg]:size-6 border-2 border-foreground flex items-center justify-center">
+          <div className=" h-12 w-12 lg:h-14 lg:w-14 [&_svg]:size-5 lg:[&_svg]:size-6 border-2 border-foreground flex items-center justify-center">
             <Loader noText />
           </div>
         ) : (
           <Button
             size="icon"
             type="submit"
-            className="text-base h-12 w-12 md:h-14 md:w-14 md:[&_svg]:size-6"
+            className="text-base h-12 w-12 lg:h-14 lg:w-14 lg:[&_svg]:size-6"
           >
             <ArrowRight />
           </Button>

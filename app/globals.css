@@ -139,11 +139,11 @@
 }
 
 .modal-backdrop {
-  @apply fixed top-0 bottom-0 left-0 right-0 bg-background/75 z-50;
+  @apply absolute top-0 bottom-0 left-0 right-0 bg-background/75 z-50;
 }
 
 .modal {
-  @apply w-full h-full bg-background/25 backdrop-blur-xl text-foreground flex flex-col gap-4 p-4 border border-foreground/25 z-[100];
+  @apply w-full h-full bg-background/25 backdrop-blur-xl text-foreground flex flex-col gap-4 p-4 border border-foreground/25 z-[100] m-auto xl:max-w-[1440px] 2xl:max-w-[1920px];
 }
 
 .rect {

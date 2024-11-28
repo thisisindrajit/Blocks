@@ -128,7 +128,7 @@ const CTopicSearchBar: FC = () => {
           readOnly={generatingBlock}
         />
         {generatingBlock ? (
-          <div className=" h-12 w-12 lg:h-14 lg:w-14 [&_svg]:size-5 lg:[&_svg]:size-6 border-2 border-foreground flex items-center justify-center">
+          <div className="h-12 w-12 lg:h-14 lg:w-14 border-2 border-foreground flex items-center justify-center">
             <Loader noText />
           </div>
         ) : (

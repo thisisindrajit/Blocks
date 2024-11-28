@@ -4,7 +4,7 @@ import {
   randomLightColorGenerator,
   statsCountShortener,
 } from "@/utilities/commonUtilities";
-import { FC, memo, useLayoutEffect, useRef } from "react";
+import { FC, useLayoutEffect, useMemo, useRef } from "react";
 import { Separator } from "./ui/separator";
 import { Bookmark, Heart, Share2 } from "lucide-react";
 
@@ -17,7 +17,7 @@ const CBlock: FC<{
   likesCount: number;
 }> = ({ title, tldr, didYouKnow, isLiked, isSaved, likesCount }) => {
   const blockRef = useRef<HTMLDivElement>(null);
-  const color = randomLightColorGenerator();
+  const color = useMemo(() => randomLightColorGenerator(), []);
 
   useLayoutEffect(() => {
     const block = blockRef.current;
@@ -142,4 +142,4 @@ const CBlock: FC<{
   );
 };
 
-export default memo(CBlock);
+export default CBlock;

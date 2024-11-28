@@ -99,7 +99,7 @@ const CTopicSearchBar: FC = () => {
   };
 
   return (
-    <div className="flex flex-col sm:flex-row items-center sm:items-baseline gap-4 sm:gap-2 text-3xl lg:text-4xl m-auto mt-10 mb-14 lg:mb-20 font-medium">
+    <div className="flex flex-col sm:flex-row items-center sm:items-baseline gap-4 sm:gap-2 text-3xl lg:text-4xl m-auto mt-10 mb-12 lg:mb-20 font-medium">
       <span className={`${generatingBlock && "animate-pulse"} min-w-fit`}>
         {generatingBlock ? (
           "Generating block for "

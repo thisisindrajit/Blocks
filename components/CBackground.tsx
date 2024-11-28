@@ -1,7 +1,10 @@
 "use client";
 
-import { FC, Fragment, ReactNode, 
-  // useEffect, useMemo, useRef 
+import {
+  FC,
+  Fragment,
+  ReactNode,
+  // useEffect, useMemo, useRef
 } from "react";
 
 const CBackground: FC<{ className?: string; children: ReactNode }> = ({

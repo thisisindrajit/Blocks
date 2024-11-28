@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { FC } from "react";
-import ConvexClientProvider from "@/providers/CConvexClientProvider";
+import CConvexClientProvider from "@/providers/CConvexClientProvider";
 import { APP_DESCRIPTION, APP_NAME } from "@/constants/common";
 import CBackground from "@/components/CBackground";
 import { Toaster } from "sonner";
@@ -45,8 +45,8 @@ const RootLayout: FC<
         <link rel="manifest" href="/favicons/site.webmanifest" />
       </head>
       <body>
-        <ConvexClientProvider>
-          <CBackground className="p-4 lg:p-6 flex flex-col gap-12 m-auto xl:max-w-[1440px] 2xl:max-w-[1920px]">
+        <CConvexClientProvider>
+          <CBackground className="m-auto xl:max-w-[1440px] 2xl:max-w-[1920px] p-4 lg:p-6 flex flex-col gap-12">
             {children}
             {modal}
             <div id="modal-root" />
@@ -62,7 +62,7 @@ const RootLayout: FC<
               }}
             />
           </CBackground>
-        </ConvexClientProvider>
+        </CConvexClientProvider>
       </body>
     </html>
   );

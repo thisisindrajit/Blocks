@@ -12,7 +12,7 @@ const DynamicConvexProviderWithClerk = dynamic(
 
 const convex = new ConvexReactClient(process.env.NEXT_PUBLIC_CONVEX_URL!);
 
-const ConvexClientProvider: FC<{ children: ReactNode }> = ({ children }) => {
+const CConvexClientProvider: FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <ClerkProvider
       publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
@@ -32,4 +32,4 @@ const ConvexClientProvider: FC<{ children: ReactNode }> = ({ children }) => {
   );
 };
 
-export default ConvexClientProvider;
+export default CConvexClientProvider;

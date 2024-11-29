@@ -3,7 +3,6 @@
 import {
   type ElementRef,
   FC,
-  Fragment,
   ReactNode,
   useEffect,
   useRef,
@@ -38,8 +37,7 @@ const CModal: FC<{ children: ReactNode; className?: string }> = ({
   };
 
   return createPortal(
-    <Fragment>
-      <div className="modal-backdrop" />
+    <div className="modal-backdrop">
       <dialog
         ref={dialogRef}
         className={cn("modal", className)}
@@ -50,7 +48,7 @@ const CModal: FC<{ children: ReactNode; className?: string }> = ({
         </Button>
         {children}
       </dialog>
-    </Fragment>,
+    </div>,
     document.getElementById("modal-root")!
   );
 };

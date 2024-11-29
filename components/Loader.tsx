@@ -1,11 +1,12 @@
 import { cn } from "@/lib/utils";
 import { FC } from "react";
 
-const Loader: FC<{ text?: string; noText?: boolean; className?: string }> = ({
-  text = "Loading",
-  noText = false,
-  className,
-}) => {
+const Loader: FC<{
+  text?: string;
+  noText?: boolean;
+  className?: string;
+  svgClassName?: string;
+}> = ({ text = "Loading", noText = false, className, svgClassName }) => {
   return (
     // set it in center using translate
     <div
@@ -16,7 +17,10 @@ const Loader: FC<{ text?: string; noText?: boolean; className?: string }> = ({
     >
       <div className="spinner animated fadeIn relative h-6 w-6">
         <svg viewBox="0 0 40 40">
-          <polygon points="0 0 0 40 40 40 40 0" className="rect"></polygon>
+          <polygon
+            points="0 0 0 40 40 40 40 0"
+            className={cn("rect stroke-foreground", svgClassName)}
+          ></polygon>
         </svg>
       </div>
       {!noText && `${text}...`}

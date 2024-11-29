@@ -1,7 +1,7 @@
 import Loader from "@/components/Loader";
 
-const SavedBlocksLoading = () => {
+const SavedLoading = () => {
   return <Loader text="Loading saved blocks" />;
 };
 
-export default SavedBlocksLoading;
+export default SavedLoading;

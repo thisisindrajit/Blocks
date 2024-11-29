@@ -1,7 +1,7 @@
 import Loader from "@/components/Loader";
 
 const DashboardLoading = () => {
-  return <Loader text="Loading new and trending blocks" />;
+  return <Loader text="Loading trending blocks" />;
 };
 
 export default DashboardLoading;

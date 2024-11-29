@@ -142,17 +142,16 @@
 } */
 
 .modal-backdrop {
-  @apply absolute top-0 bottom-0 left-0 right-0 bg-background/75 z-50;
+  @apply fixed top-0 bottom-0 left-0 right-0 bg-background/75 z-50;
 }
 
 .modal {
-  @apply w-full h-full bg-background/25 backdrop-blur-xl text-foreground flex flex-col gap-4 p-4 border border-foreground/25 z-[100];
+  @apply w-full h-full bg-background/25 backdrop-blur-xl text-foreground flex flex-col gap-4 border border-foreground/25 z-[100] 2xl:w-[98vw] 2xl:max-w-[1920px];
 }
 
 .rect {
   fill: none;
   stroke-width: 8px;
-  stroke: white;
   stroke-dasharray: 40;
   stroke-dashoffset: 50%;
   -webkit-animation: movedash 1.5s forwards 0s infinite;

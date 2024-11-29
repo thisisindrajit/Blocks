@@ -27,7 +27,12 @@ const LandingPage: FC = async () => {
         </span>
       </div>
       <div className="flex flex-col gap-4">
-        <TitleHolder boldText="Trending" lightText="Blocks" />
+        <TitleHolder
+          words={[
+            { word: "Trending", type: "bold" },
+            { word: "Blocks", type: "normal" },
+          ]}
+        />
         <CMasonryHolder />
       </div>
     </Fragment>

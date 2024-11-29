@@ -99,7 +99,7 @@ const CTopicSearchBar: FC = () => {
   };
 
   return (
-    <div className="flex flex-col sm:flex-row items-center sm:items-baseline gap-4 sm:gap-2 text-3xl lg:text-4xl m-auto mt-10 mb-16 lg:mb-20 font-medium">
+    <div className="flex flex-col sm:flex-row items-center sm:items-baseline gap-4 sm:gap-2 text-3xl lg:text-4xl m-auto mt-12 mb-16 lg:mb-24 font-medium">
       <span className={`${generatingBlock && "animate-pulse"} min-w-fit`}>
         {generatingBlock ? (
           "Generating block for "
@@ -129,7 +129,7 @@ const CTopicSearchBar: FC = () => {
         />
         {generatingBlock ? (
           <div className="h-12 w-12 lg:h-14 lg:w-14 border-2 border-foreground flex items-center justify-center">
-            <Loader noText />
+            <Loader noText svgClassName="stroke-teal-300" />
           </div>
         ) : (
           <Button

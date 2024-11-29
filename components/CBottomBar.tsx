@@ -15,7 +15,7 @@ const CBottomBar: FC<{
   return (
     <div
       className={cn(
-        "bottom-bar flex items-center justify-center gap-1 max-w-fit inset-x-0 mx-auto z-[50] bg-background/75 backdrop-blur-xl border border-foreground text-foreground font-medium p-1 transition-all fixed bottom-6 opacity-1 shadow-[0_20px_50px_rgba(0,_0,_0,_0.7)]",
+        "bottom-bar flex items-center justify-center gap-1 max-w-fit inset-x-0 mx-auto z-50 bg-background/75 backdrop-blur-xl border border-foreground text-foreground font-medium p-1 transition-all fixed bottom-6 opacity-1 shadow-[0_20px_50px_rgba(0,_0,_0,_0.7)]",
         className
       )}
     >
@@ -33,7 +33,7 @@ const CBottomBar: FC<{
             <Link
               key={index}
               href={navItem.link}
-              className={cn("transition-all p-3", linkClassName)}
+              className={cn("transition-all py-3 px-6", linkClassName)}
             >
               {navItem.name}
             </Link>

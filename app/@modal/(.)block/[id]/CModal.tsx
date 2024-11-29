@@ -1,10 +1,22 @@
 "use client";
 
-import { type ElementRef, FC, ReactNode, useEffect, useRef } from "react";
+import {
+  type ElementRef,
+  FC,
+  Fragment,
+  ReactNode,
+  useEffect,
+  useRef,
+} from "react";
 import { useRouter } from "next/navigation";
 import { createPortal } from "react-dom";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
-const CModal: FC<{ children: ReactNode }> = ({ children }) => {
+const CModal: FC<{ children: ReactNode; className?: string }> = ({
+  children,
+  className,
+}) => {
   const router = useRouter();
   const dialogRef = useRef<ElementRef<"dialog">>(null);
 
@@ -23,15 +35,22 @@ const CModal: FC<{ children: ReactNode }> = ({ children }) => {
 
   const onDismiss = () => {
     router.back();
-  }
+  };
 
   return createPortal(
-    <div className="modal-backdrop">
-      <dialog ref={dialogRef} className="modal" onClose={onDismiss}>
+    <Fragment>
+      <div className="modal-backdrop" />
+      <dialog
+        ref={dialogRef}
+        className={cn("modal", className)}
+        // onClose={onDismiss}
+      >
+        <Button className="w-fit" onClick={onDismiss}>
+          Go back
+        </Button>
         {children}
-        <button onClick={onDismiss}>Close</button>
       </dialog>
-    </div>,
+    </Fragment>,
     document.getElementById("modal-root")!
   );
 };

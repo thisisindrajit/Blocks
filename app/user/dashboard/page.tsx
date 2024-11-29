@@ -9,25 +9,27 @@ const DashboardPage = () => {
   const { position } = useScrollData();
 
   useEffect(() => {
-    const newAndTrendingScrollPosition = sessionStorage.getItem(
-      "newAndTrendingScrollPosition"
+    const trendingPageScrollPosition = sessionStorage.getItem(
+      "trendingPageScrollPosition"
     );
 
-    if (newAndTrendingScrollPosition) {
-      window.scrollTo(0, parseInt(newAndTrendingScrollPosition));
+    if (trendingPageScrollPosition) {
+      window.scrollTo(0, parseInt(trendingPageScrollPosition));
     }
   }, []);
 
   useEffect(() => {
-    sessionStorage.setItem(
-      "newAndTrendingScrollPosition",
-      position.y.toString()
-    );
+    sessionStorage.setItem("trendingPageScrollPosition", position.y.toString());
   }, [position.y]);
 
   return (
     <div className="flex flex-col gap-4">
-      <TitleHolder boldText="New and trending" lightText="Blocks" />
+      <TitleHolder
+        words={[
+          { word: "Trending", type: "bold" },
+          { word: "Blocks", type: "normal" },
+        ]}
+      />
       <CMasonryHolder />
     </div>
   );

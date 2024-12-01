@@ -6,7 +6,7 @@ const BlockPage = () => {
   return (
     <Fragment>
       <TopBar />
-      <CBlockDataHolder />
+      <CBlockDataHolder leftPaneClassName="top-28" rightPaneClassName="top-28" />
     </Fragment>
   );
 };

@@ -7,6 +7,7 @@ import {
 import { FC, useLayoutEffect, useMemo, useRef } from "react";
 import { Separator } from "./ui/separator";
 import { Bookmark, Heart, Share2 } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const CBlock: FC<{
   title: string;
@@ -15,7 +16,8 @@ const CBlock: FC<{
   isLiked: boolean;
   isSaved: boolean;
   likesCount: number;
-}> = ({ title, tldr, didYouKnow, isLiked, isSaved, likesCount }) => {
+  className?: string;
+}> = ({ title, tldr, didYouKnow, isLiked, isSaved, likesCount, className }) => {
   const blockRef = useRef<HTMLDivElement>(null);
   const color = useMemo(() => randomLightColorGenerator(), []);
 
@@ -43,7 +45,7 @@ const CBlock: FC<{
   return (
     <div
       ref={blockRef}
-      className={`min-w-full flex flex-col gap-3 p-4 border-2 border-transparent transition-all cursor-pointer`}
+      className={cn(`min-w-full flex flex-col gap-3 p-4 border-2 border-transparent transition-all cursor-pointer`, className)}
       style={{
         backgroundColor: `hsla(${color}, 0.15)`,
         borderColor: `hsla(${color}, 0.15)`,

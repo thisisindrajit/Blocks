@@ -49,19 +49,19 @@ const RootLayout: FC<
           <CBackground className="m-auto xl:max-w-[1440px] 2xl:max-w-[1920px] p-4 lg:p-6 flex flex-col gap-12">
             {children}
             {modal}
-            <div id="modal-root" />
-            <Toaster
-              theme="light"
-              richColors={true}
-              expand={true}
-              closeButton={true}
-              toastOptions={{
-                style: {
-                  fontFamily: `"Clash Grotesk", sans-serif`,
-                },
-              }}
-            />
           </CBackground>
+          <div id="modal-root" />
+          <Toaster
+            theme="light"
+            richColors={true}
+            expand={true}
+            closeButton={true}
+            toastOptions={{
+              style: {
+                fontFamily: `"Clash Grotesk", sans-serif`,
+              },
+            }}
+          />
         </CConvexClientProvider>
       </body>
     </html>

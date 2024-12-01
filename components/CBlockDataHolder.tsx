@@ -47,7 +47,7 @@ const CBlockDataHolder: FC<{
       <div
         id="left-pane"
         className={cn(
-          "w-1/5 sticky top-0 flex flex-col justify-between",
+          "hidden w-1/5 sticky top-0 xl:flex flex-col justify-between",
           leftPaneClassName
         )}
       >
@@ -58,28 +58,32 @@ const CBlockDataHolder: FC<{
           onClick={onDismiss}
         >
           <ArrowLeft />
-          Go back
+          Back
         </Button>
         <div className="flex flex-col gap-2">
-          <div className="flex items-center justify-center gap-2 p-3 cursor-pointer border border-rose-400/50 text-rose-400 font-medium">
-            <Heart className="h-4 w-4" />
-            <span>123K+</span>
+          <div className="flex items-center justify-center gap-2 p-3 cursor-pointer border-2 border-red-400/25 bg-red-400/10 text-red-400 font-medium">
+            <Heart className="h-4 w-4 fill-red-400" />
+            123K+
           </div>
           <div className="flex gap-2">
-            <div className="flex items-center justify-center gap-2 p-4 cursor-pointer border border-transparent bg-teal-400/[0.15] text-teal-400 font-medium w-[50%]">
-              <Bookmark className="h-4 w-4 fill-teal-400" />
+            <div className="flex items-center justify-center gap-2 p-3 cursor-pointer border-2 border-orange-400/25 text-orange-400 font-medium w-[50%]">
+              <Bookmark className="h-4 w-4" />
+              Save
             </div>
-            <div className="flex items-center justify-center gap-2 p-4 cursor-pointer border border-transparent bg-foreground/10 font-medium w-[50%]">
+            <div className="flex items-center justify-center gap-2 p-3 cursor-pointer border-2 border-teal-400/25 bg-teal-400/10 text-teal-400 font-medium w-[50%]">
               <Share2 className="h-4 w-4" />
+              Share
             </div>
           </div>
         </div>
       </div>
-      <div className="w-2/5 flex flex-col gap-4">
+      <div
+        className={`w-full lg:w-3/5 xl:w-2/5 flex flex-col gap-4 lg:mt-0 ${!isModal && "mt-4"}`}
+      >
         <div
-          className="font-bold text-4xl/tight mb-2"
+          className="font-bold text-2xl/snug md:text-3xl/tight mb-0 xl:text-4xl/tight xl:mb-2"
           style={{
-            marginTop: `calc(-0.5 * (1.5 - 1) * 1.05em)`,
+            marginTop: `calc(-0.5 * (1.5 - 1) * 1em)`,
           }}
         >
           What is the difference between you and me?
@@ -116,17 +120,40 @@ const CBlockDataHolder: FC<{
           isLiked={DUMMY_DATA[0].isLiked}
           isSaved={DUMMY_DATA[0].isSaved}
         />
+        <div
+          className={`grid xl:hidden grid-cols-4 sticky m-auto w-full shadow-[0_40px_20px_rgba(0,_0,_0,_1)] ${!isModal ? "bottom-4 lg:bottom-6" : "bottom-0"}`}
+        >
+          <div
+            className="flex items-center justify-center gap-2 p-3 cursor-pointer bg-foreground text-background font-medium text-sm md:text-base"
+            onClick={onDismiss}
+          >
+            <ArrowLeft className="h-5 w-5" />
+            <span className="hidden md:block">Back</span>
+          </div>
+          <div className="flex items-center justify-center gap-2 p-3 cursor-pointer bg-red-500 font-medium text-sm md:text-base">
+            <Heart className="h-4 w-4" />
+            <span className="hidden md:block">123K+</span>
+          </div>
+          <div className="flex items-center justify-center gap-2 p-3 cursor-pointer bg-orange-500 font-medium text-sm md:text-base">
+            <Bookmark className="h-4 w-4 fill-foreground" />
+            <span className="hidden md:block">Saved</span>
+          </div>
+          <div className="flex items-center justify-center gap-2 p-3 cursor-pointer bg-teal-500 font-medium text-sm md:text-base">
+            <Share2 className="h-4 w-4" />
+            <span className="hidden md:block">Share</span>
+          </div>
+        </div>
       </div>
       <div
         id="right-pane"
         className={cn(
-          "w-2/5 flex flex-col gap-2 sticky top-0",
+          "hidden w-2/5 lg:flex flex-col gap-2 sticky top-0",
           rightPaneClassName
         )}
       >
         {/* <div className="font-bold text-2xl text-teal-300 uppercase">Notes</div> */}
         <Textarea
-          className="resize-none text-lg/loose text-justify h-full"
+          className="resize-none text-lg/loose text-justify h-full font-medium"
           placeholder="Jot down your notes here..."
         />
         <Button variant="secondary">Save note</Button>

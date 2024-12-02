@@ -14,6 +14,7 @@ const UserLayout: FC<
       <CTopicSearchBar />
       {children}
       <CBottomBar />
+      <div className="mb-8" />
     </Fragment>
   );
 };

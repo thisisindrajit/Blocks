@@ -26,7 +26,7 @@ const CBlockDataHolder: FC<{
     const rightPaneEl = document.getElementById("right-pane");
 
     if (blockDataHolderEl && leftPaneEl && rightPaneEl) {
-      const height = `${(isModal ? document.documentElement.clientHeight - 40 : document.documentElement.clientHeight) - blockDataHolderEl.offsetTop - 24}px`;
+      const height = `${(isModal ? document.documentElement.clientHeight - 30 : document.documentElement.clientHeight) - blockDataHolderEl.offsetTop - 23}px`;
       leftPaneEl.setAttribute("style", `height: ${height}`);
       rightPaneEl.setAttribute("style", `height: ${height}`);
     }

@@ -141,18 +141,10 @@
   @apply fixed top-0 right-0 object-cover z-[-1] opacity-30 pointer-events-none min-h-[100dvh];
 } */
 
-dialog {
+/* dialog {
   max-width: 98vw;
   max-height: 96dvh;
-}
-
-.modal-backdrop {
-  @apply fixed top-0 bottom-0 left-0 right-0 bg-background/90 z-[75];
-}
-
-.modal {
-  @apply w-full h-full bg-background/75 backdrop-blur-xl text-foreground flex flex-col gap-4 border border-foreground/25 z-[100] 2xl:w-[98vw] 2xl:max-w-[1920px];
-}
+} */
 
 .rect {
   fill: none;
@@ -176,22 +168,12 @@ dialog {
 }
 
 /* ===== Scrollbar CSS ===== */
-/* Firefox */
 * {
   scrollbar-width: thin;
   scrollbar-color: #aaa transparent;
-}
-
-/* Chrome, Edge, and Safari */
-*::-webkit-scrollbar {
-  width: 16px;
 }
 
 *::-webkit-scrollbar-track {
   background: transparent;
 }
 
-*::-webkit-scrollbar-thumb {
-  background-color: #fff;
-  border: 3px solid transparent;
-}

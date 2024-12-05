@@ -3,7 +3,7 @@ import CModal from "./CModal";
 
 const BlockModal = () => {
   return (
-    <CModal className="p-4 sm:p-5">
+    <CModal>
       <CBlockDataHolder isModal />
     </CModal>
   );

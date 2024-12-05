@@ -6,7 +6,7 @@ import { ArrowLeft, Bookmark, Heart, Share2 } from "lucide-react";
 import CBlock from "./CBlock";
 import { DUMMY_DATA } from "@/constants/common";
 import { FC, useCallback, useEffect } from "react";
-import { cn } from "@/utilities/commonUtilities";
+import { cn, innerDimensions } from "@/utilities/commonUtilities";
 import { Textarea } from "./ui/textarea";
 
 const CBlockDataHolder: FC<{
@@ -21,13 +21,13 @@ const CBlockDataHolder: FC<{
   };
 
   const updateHeightOfLeftAndRightPane = useCallback(() => {
-    const modalEl = document.getElementsByClassName("modal")[0];
+    const modalEl = document.getElementById("modal");
     const blockDataHolderEl = document.getElementById("block-data-holder");
     const leftPaneEl = document.getElementById("left-pane");
     const rightPaneEl = document.getElementById("right-pane");
 
     if (blockDataHolderEl && leftPaneEl && rightPaneEl) {
-      const height = `${(isModal && modalEl ? modalEl.clientHeight : document.documentElement.clientHeight) - blockDataHolderEl.offsetTop - 20}px`;
+      const height = `${isModal && modalEl ? innerDimensions(modalEl).height : innerDimensions(document.documentElement).height - blockDataHolderEl.offsetTop - 24}px`;
       leftPaneEl.setAttribute("style", `height: ${height}`);
       rightPaneEl.setAttribute("style", `height: ${height}`);
     }
@@ -82,10 +82,10 @@ const CBlockDataHolder: FC<{
         className={`w-full md:w-3/5 xl:w-2/5 flex flex-col gap-3 lg:mt-0 ${!isModal && "mt-4"}`}
       >
         <div
-          className="font-bold text-2xl/snug md:text-3xl/snug xl:text-4xl/snug"
-          style={{
-            marginTop: `calc(-0.5 * (1.5 - 1) * 1em)`,
-          }}
+          className="font-bold text-3xl/snug xl:text-4xl/snug md:mt-[calc(-0.5_*_(1.5_-_1)_*_2.25em)] lg:mt-[calc(-0.5_*_(1.5_-_1)_*_1em)]"
+          // style={{
+          //   marginTop: `calc(-0.5 * (1.5 - 1) * 1em)`,
+          // }}
         >
           What is the difference between you and me?
         </div>

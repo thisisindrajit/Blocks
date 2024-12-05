@@ -96,6 +96,7 @@ const CBlockDataHolder: FC<{
           likesCount={DUMMY_DATA[0].likeCount}
           isLiked={DUMMY_DATA[0].isLiked}
           isSaved={DUMMY_DATA[0].isSaved}
+          className="cursor-default"
         />
         <CBlock
           title={DUMMY_DATA[0].title}
@@ -104,6 +105,7 @@ const CBlockDataHolder: FC<{
           likesCount={DUMMY_DATA[0].likeCount}
           isLiked={DUMMY_DATA[0].isLiked}
           isSaved={DUMMY_DATA[0].isSaved}
+          className="cursor-default"
         />
         <CBlock
           title={DUMMY_DATA[0].title}
@@ -112,6 +114,7 @@ const CBlockDataHolder: FC<{
           likesCount={DUMMY_DATA[0].likeCount}
           isLiked={DUMMY_DATA[0].isLiked}
           isSaved={DUMMY_DATA[0].isSaved}
+          className="cursor-default"
         />
         <CBlock
           title={DUMMY_DATA[0].title}
@@ -120,6 +123,7 @@ const CBlockDataHolder: FC<{
           likesCount={DUMMY_DATA[0].likeCount}
           isLiked={DUMMY_DATA[0].isLiked}
           isSaved={DUMMY_DATA[0].isSaved}
+          className="cursor-default"
         />
         <div
           className={`grid xl:hidden grid-cols-4 sticky m-auto w-full shadow-[0_40px_5px_rgba(0,_0,_0,_1)] ${!isModal ? "bottom-4 lg:bottom-6" : "bottom-0"}`}

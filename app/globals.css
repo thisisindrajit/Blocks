@@ -167,13 +167,3 @@
   }
 }
 
-/* ===== Scrollbar CSS ===== */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: #aaa transparent;
-}
-
-*::-webkit-scrollbar-track {
-  background: transparent;
-}
-

@@ -2,7 +2,7 @@
 
 import { type ElementRef, FC, ReactNode, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utilities/commonUtilities";
 
 const CModal: FC<{ children: ReactNode; className?: string }> = ({
   children,

@@ -26,4 +26,8 @@ export default defineSchema({
   })
     .index("bySavedBy", ["saved_by"])
     .index("bySnippetIdAndSavedBy", ["snippet_id", "saved_by"]),
+  // TODO: Add index later if required
+  list_notification_types: defineTable({
+    notification_type: v.string(),
+  }),
 });

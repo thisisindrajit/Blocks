@@ -4,39 +4,42 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowRight } from "lucide-react";
 import { FC, ChangeEvent, FormEvent, useState } from "react";
-// import { useAuth } from "@clerk/nextjs";
 import { toast } from "sonner";
-// import { useAction, useQuery } from "convex/react";
-// import { api } from "@/convex/_generated/api";
-import { retryFunction } from "@/utilities/commonUtilities";
 import Loader from "./Loader";
-// import { fetchMutation } from "convex/nextjs";
+// import { useAction } from "convex/react";
+// import { api } from "@/convex/_generated/api";
+// import { retryFunction } from "@/utilities/commonUtilities";
+// import { useAuth } from "@clerk/nextjs";
 
 const CTopicSearchBar: FC = () => {
-  //   const { userId } = useAuth();
-  //   const userByExternalId = useQuery(api.users.getUserByExternalId, {
-  //     externalId: userId ?? undefined,
-  //   });
+  // const { userId } = useAuth();
+  // const userByExternalId = useQuery(api.users.getUserByExternalId, {
+  //   externalId: userId ?? undefined,
+  // });
+  // const generateBlockAction = useAction(
+  //   api.block_generation_action.generateBlock
+  // );
 
   const [generatingBlock, setGeneratingBlock] = useState<boolean>(false);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [width, setWidth] = useState(18);
 
-  const blockGenerationErrorHandler = async () => {
+  const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+    setWidth(e.target.value.length > 18 ? e.target.value.length : 18);
+  };
+
+  const blockGenerationErrorHandler = () => {
     toast.error(
-      <div className="text-sm/loose">
+      <div className="text-sm/loose text-justify font-medium">
         Error while generating block for search query{" "}
-        <span className="font-semibold">{searchQuery}</span>! Please try again.
+        <span className="font-bold underline">{searchQuery}</span>! Please try
+        again.
       </div>,
       {
         duration: Infinity,
       }
     );
-  };
-
-  const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value);
-    setWidth(e.target.value.length > 18 ? e.target.value.length : 18);
   };
 
   const submitHandler = async (e: FormEvent) => {
@@ -59,7 +62,7 @@ const CTopicSearchBar: FC = () => {
     setSearchQuery(formattedSearchQuery);
     setWidth(formattedSearchQuery.length);
 
-    toast.success(
+    toast.info(
       <div className="text-sm/loose text-justify font-medium">
         Your request for search query{" "}
         <span className="font-bold underline">{searchQuery}</span> has been
@@ -67,30 +70,33 @@ const CTopicSearchBar: FC = () => {
         available. Meanwhile you can check out trending blocks.
       </div>,
       {
-        duration: Infinity,
+        duration: 10000,
       }
     );
 
     try {
-      const isSuccess = await retryFunction(() => {
-        // sleep for 1 min
-        return new Promise((resolve) => {
-          setTimeout(() => {
-            resolve(true);
-          }, 60000);
-        });
-        // console.log("Block generation successful!");
-        // return true;
-      });
+      // const isSuccess = await retryFunction(() =>
+      //   generateBlockAction({
+      //     searchQuery: searchQuery,
+      //     externalUserId: userId ?? undefined,
+      //   })
+      // );
+
+      // function to sleep for 10 seconds and then return true
+      const sleep = (ms: number) =>
+        new Promise((resolve) => setTimeout(() => resolve(true), ms));
+      
+      const isSuccess = await sleep(10000);
 
       if (!isSuccess) {
-        await blockGenerationErrorHandler();
+        blockGenerationErrorHandler();
       }
     } catch (error) {
       console.error(
         `Some error occurred while generating block. ${error instanceof Error && error.message}`
       );
-      await blockGenerationErrorHandler();
+
+      blockGenerationErrorHandler();
     }
 
     setSearchQuery("");
@@ -99,7 +105,7 @@ const CTopicSearchBar: FC = () => {
   };
 
   return (
-    <div className="flex flex-col sm:flex-row items-center sm:items-baseline gap-4 sm:gap-2 text-3xl lg:text-4xl m-auto mt-8 mb-10 lg:mb-16 font-medium">
+    <div className="flex flex-col sm:flex-row items-center sm:items-baseline gap-4 sm:gap-2 text-3xl lg:text-4xl m-auto mt-8 mb-10 lg:mb-12 font-medium">
       <span className={`${generatingBlock && "animate-pulse"} min-w-fit`}>
         {generatingBlock ? (
           "Generating block for "

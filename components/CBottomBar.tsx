@@ -1,7 +1,7 @@
 "use client";
 
 import React, { FC } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utilities/commonUtilities";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BOTTOM_NAV_ITEMS } from "@/constants/common";
@@ -26,8 +26,8 @@ const CBottomBar: FC<{
         ) => {
           const linkClassName =
             pathName === navItem.link
-              ? "bg-teal-300/10 text-teal-300"
-              : "hover:bg-foreground/10";
+              ? "bg-teal-300/20 text-teal-300"
+              : "hover:bg-foreground/20";
 
           return (
             <Link

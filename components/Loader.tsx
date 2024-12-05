@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/utilities/commonUtilities";
 import { FC } from "react";
 
 const Loader: FC<{

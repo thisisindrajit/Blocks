@@ -7,7 +7,7 @@ import {
 import { FC, useLayoutEffect, useMemo, useRef } from "react";
 import { Separator } from "./ui/separator";
 import { Bookmark, Heart, Share2 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utilities/commonUtilities";
 
 const CBlock: FC<{
   title: string;

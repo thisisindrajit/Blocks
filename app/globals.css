@@ -111,6 +111,10 @@
     @apply border-border;
   }
 
+  html {
+    @apply scroll-smooth;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
     font-family: "Clash Grotesk", sans-serif;
@@ -143,7 +147,7 @@
 
 dialog {
   max-width: 98vw;
-  max-height: 96vh;
+  max-height: 96dvh;
 }
 
 .modal-backdrop {
@@ -151,7 +155,7 @@ dialog {
 }
 
 .modal {
-  @apply w-full h-full bg-background/25 backdrop-blur-xl text-foreground flex flex-col gap-4 border border-foreground/25 z-[100] 2xl:w-[98vw] 2xl:max-w-[1920px];
+  @apply w-full h-full bg-background/75 backdrop-blur-xl text-foreground flex flex-col gap-4 border border-foreground/25 z-[100] 2xl:w-[98vw] 2xl:max-w-[1920px];
 }
 
 .rect {

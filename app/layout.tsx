@@ -46,7 +46,7 @@ const RootLayout: FC<
       </head>
       <body>
         <CConvexClientProvider>
-          <CBackground className="m-auto xl:max-w-[1440px] 2xl:max-w-[1920px] p-4 lg:p-6 flex flex-col gap-12">
+          <CBackground className="m-auto 2xl:max-w-[1920px] p-4 lg:p-6 flex flex-col gap-12">
             {children}
             {modal}
           </CBackground>

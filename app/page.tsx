@@ -15,7 +15,7 @@ const LandingPage: FC = async () => {
   return (
     <Fragment>
       <TopBar />
-      <div className="m-auto mt-8 mb-10 lg:mb-12 text-5xl/tight font-medium text-center">
+      <div className="m-auto mt-10 mb-8 md:mt-6 md:mb-12 text-5xl/tight font-medium text-center">
         {/* Motto */}
         Turning{" "}
         <span className="bg-gradient-to-r text-foreground from-teal-500 to-teal-600">
